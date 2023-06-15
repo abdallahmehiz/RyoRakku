@@ -71,4 +71,43 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+  // Voyager
+  val voyagerVersion = "1.0.0-rc05"
+
+  // Multiplatform
+
+  // Navigator
+  implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+
+  // BottomSheetNavigator
+  implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyagerVersion")
+
+  // TabNavigator
+  implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+
+  // Transitions
+  implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+
+  // Android
+
+  // Android ViewModel integration
+  implementation("cafe.adriel.voyager:voyager-androidx:$voyagerVersion")
+
+  // Koin integration
+  implementation("cafe.adriel.voyager:voyager-koin:$voyagerVersion")
+
+  // Hilt integration
+  implementation("cafe.adriel.voyager:voyager-hilt:$voyagerVersion")
+
+  // LiveData integration
+  implementation("cafe.adriel.voyager:voyager-livedata:$voyagerVersion")
+
+  // Desktop + Android
+
+  // Kodein integration
+  implementation("cafe.adriel.voyager:voyager-kodein:$voyagerVersion")
+
+  // RxJava integration
+  implementation("cafe.adriel.voyager:voyager-rxjava:$voyagerVersion")
 }

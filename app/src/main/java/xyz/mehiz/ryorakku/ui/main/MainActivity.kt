@@ -1,83 +1,57 @@
 package xyz.mehiz.ryorakku.ui.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import xyz.mehiz.ryorakku.R
-import xyz.mehiz.ryorakku.ui.navigation.SetupNavGraph
-import xyz.mehiz.ryorakku.ui.theme.RyoRakkuTheme
+import androidx.compose.ui.platform.LocalContext
+import cafe.adriel.voyager.navigator.CurrentScreen
+import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.navigator.NavigatorDisposeBehavior
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import xyz.mehiz.ryorakku.ui.home.HomeScreen
+import kotlin.time.Duration.Companion.seconds
 
 class MainActivity : ComponentActivity() {
-
-  private lateinit var navController: NavHostController
-  private val navItems = listOf("Anime", "Manga", "Discover", "Calendar", "Profile")
-  private var selectedItem by mutableStateOf(0)
-
-  @OptIn(ExperimentalMaterial3Api::class)
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      RyoRakkuTheme {
-        navController = rememberNavController()
-
-        Scaffold(
-          content = { padding ->
-            Column(modifier = Modifier.padding(padding)) {
-              SetupNavGraph(navController = navController)
-            }
-          },
-          bottomBar = {
-            NavigationBar {
-              navItems.forEachIndexed { index, item ->
-                NavigationBarItem(
-                  icon = {
-                    Icon(
-                      when (index) {
-                        0 -> painterResource(id = R.drawable.outline_video_library_24)
-                        1 -> painterResource(id = R.drawable.outline_collections_bookmark_24)
-                        2 -> painterResource(id = R.drawable.outline_explore_24)
-                        3 -> painterResource(id = R.drawable.outline_calendar_month_24)
-                        4 -> painterResource(id = R.drawable.outline_account_box_24)
-                        else -> painterResource(id = R.drawable.ic_launcher_foreground)
-                      },
-                      contentDescription = item
-                    )
-                  },
-                  label = { Text(item) },
-                  selected = selectedItem == index,
-                  onClick = {
-                    selectedItem = index
-                    navController.navigate(route = item + "Screen") {
-                      popUpTo(navController.graph.startDestinationId)
-                      launchSingleTop = true
-                    }
-                  }
-                )
-                // it worked, somehow
-                BackHandler(enabled = true, onBack = {
-                  if(selectedItem == 0) finish() else selectedItem = 0
-                })
-              }
-            }
-          }
+      Navigator(
+        screen = HomeScreen(),
+        disposeBehavior = NavigatorDisposeBehavior(
+          disposeNestedNavigators = false,
+          disposeSteps = true
         )
+      )
+      { navigator ->
+        if (navigator.size == 1) {
+          ConfirmExit()
+        }
+        CurrentScreen()
       }
+    }
+  }
+}
+
+@Composable
+private fun ConfirmExit() {
+  val scope = rememberCoroutineScope()
+  val context = LocalContext.current
+  var waitingConfirmation by remember { mutableStateOf(false) }
+  BackHandler(enabled = !waitingConfirmation) {
+    scope.launch {
+      waitingConfirmation = true
+      Toast.makeText(context, "Back again to exit", Toast.LENGTH_SHORT).show()
+      delay(2.seconds)
+      waitingConfirmation = false
     }
   }
 }
