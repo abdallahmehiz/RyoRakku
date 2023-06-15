@@ -17,7 +17,7 @@ object DiscoverTab : Tab {
     get() {
       val title = "Discover"
       val image = painterResource(id = R.drawable.outline_explore_24)
-      return TabOptions(index = 0u, title = title, icon = image)
+      return TabOptions(index = 2u, title = title, icon = image)
     }
 
   @Composable

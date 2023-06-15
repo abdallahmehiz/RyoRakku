@@ -17,7 +17,7 @@ object MangaTab : Tab {
     get() {
       val title = "Manga"
       val image = painterResource(id = R.drawable.outline_collections_bookmark_24)
-      return TabOptions(index = 0u, title = title, icon = image)
+      return TabOptions(index = 1u, title = title, icon = image)
     }
 
   @Composable

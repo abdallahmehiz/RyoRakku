@@ -17,7 +17,7 @@ object CalendarTab : Tab {
     get() {
       val title = "Calendar"
       val image = painterResource(id = R.drawable.outline_calendar_month_24)
-      return TabOptions(index = 0u, title = title, icon = image)
+      return TabOptions(index = 3u, title = title, icon = image)
     }
 
   @Composable

@@ -18,8 +18,7 @@ object ProfileTab : Tab {
     get() {
       val title = "Profile"
       val image = painterResource(id = R.drawable.outline_account_box_24)
-      val isSelected = LocalTabNavigator.current.current.key == key
-      return TabOptions(index = 0u, title = title, icon = image)
+      return TabOptions(index = 4u, title = title, icon = image)
     }
 
   @Composable
