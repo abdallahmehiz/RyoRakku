@@ -1,55 +1,57 @@
+
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.apollographql.apollo3") version "3.8.2"
+  alias(androidx.plugins.application)
+  alias(kotlinx.plugins.android)
+  alias(libs.plugins.apollo)
+  kotlin("kapt")
 }
 apollo {
-    service("service") {
-        packageName.set("xyz.mehiz.ryorakku")
-    }
+  service("service") {
+    packageName.set("xyz.mehiz.ryorakku")
+  }
 }
 
 android {
-    namespace = "xyz.mehiz.ryorakku"
-    compileSdk = 33
+  namespace = "xyz.mehiz.ryorakku"
+  compileSdk = 33
 
-    defaultConfig {
-        applicationId = "xyz.mehiz.ryorakku"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "0.0.0-1rc"
+  defaultConfig {
+    applicationId = "xyz.mehiz.ryorakku"
+    minSdk = 24
+    targetSdk = 33
+    versionCode = 1
+    versionName = "0.0.0-1rc"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    vectorDrawables {
+      useSupportLibrary = true
     }
+  }
 
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
+  buildTypes {
+    getByName("release") {
+      isMinifyEnabled = true
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+  }
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+  buildFeatures {
+    compose = true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion = "1.4.0"
+  }
+  packagingOptions {
+    resources {
+      excludes += "/META-INF/{AL2.0,LGPL2.1}"
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0"
-    }
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
+  }
 }
 
 dependencies {
@@ -75,4 +77,10 @@ dependencies {
   testImplementation(libs.junit)
   implementation(libs.apollo)
   implementation(libs.bundles.voyager)
+
+  // Dagger - Hilt
+  implementation(libs.hilt.android)
+  implementation(libs.hilt.navigation.compose)
+  kapt(libs.hilt.android.compiler)
+  kapt(libs.hilt.compiler)
 }

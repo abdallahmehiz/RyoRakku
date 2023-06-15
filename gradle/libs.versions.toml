@@ -1,16 +1,25 @@
 [versions]
-voyager_version = "1.0.0-rc05"
-apollo_version = "3.8.2"
+voyager = "1.0.0-rc05"
+apollo = "3.8.2"
+dagger = "2.46.1"
+hilt = "1.0.0"
 [libraries]
-voyager-navigator = { module = "ca.gosyer:voyager-navigator", version.ref = "voyager_version" }
-voyager-tab-navigator = { module = "ca.gosyer:voyager-tab-navigator", version.ref = "voyager_version" }
-voyager-transitions = { module = "ca.gosyer:voyager-transitions", version.ref = "voyager_version" }
+voyager-navigator = { module = "ca.gosyer:voyager-navigator", version.ref = "voyager" }
+voyager-tab-navigator = { module = "ca.gosyer:voyager-tab-navigator", version.ref = "voyager" }
+voyager-transitions = { module = "ca.gosyer:voyager-transitions", version.ref = "voyager" }
 
-apollo = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo_version" }
+apollo = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
 
 junit = "org.junit.jupiter:junit-jupiter:5.9.1"
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "dagger" }
+hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt" }
 
 [bundles]
 voyager = ["voyager-navigator", "voyager-tab-navigator", "voyager-transitions"]
 
 [plugins]
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+apollo = { id = "com.apollographql.apollo3", version.ref = "apollo" }

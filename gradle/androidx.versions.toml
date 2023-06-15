@@ -1,12 +1,13 @@
 [versions]
-agp_version = "8.0.2"
+agp = "8.0.2"
 
 [libraries]
 lifecycle-runtimektx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.6.1" }
 corektx = "androidx.core:core-ktx:1.8.0"
 test-ext = "androidx.test.ext:junit:1.1.5"
+splashscreen = "androidx.core:core-splashscreen:1.0.1"
 
 [plugins]
-application = { id = "com.android.application", version.ref = "agp_version" }
-library = { id = "com.android.library", version.ref = "agp_version" }
-test = { id = "com.android.test", version.ref = "agp_version" }
+application = { id = "com.android.application", version.ref = "agp" }
+library = { id = "com.android.library", version.ref = "agp" }
+test = { id = "com.android.test", version.ref = "agp" }

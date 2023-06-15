@@ -1,9 +1,9 @@
 [versions]
-kotlin_version = "1.8.0"
+kotlin = "1.8.0"
 
 [libraries]
-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin_version" }
-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin_version" }
+bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin" }
+gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.6.4" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
@@ -13,4 +13,4 @@ coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-androi
 coroutines = ["coroutines-core", "coroutines-android"]
 
 [plugins]
-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin_version" }
+android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
