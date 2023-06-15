@@ -1,0 +1,16 @@
+[versions]
+voyager_version = "1.0.0-rc05"
+apollo_version = "3.8.2"
+[libraries]
+voyager-navigator = { module = "ca.gosyer:voyager-navigator", version.ref = "voyager_version" }
+voyager-tab-navigator = { module = "ca.gosyer:voyager-tab-navigator", version.ref = "voyager_version" }
+voyager-transitions = { module = "ca.gosyer:voyager-transitions", version.ref = "voyager_version" }
+
+apollo = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo_version" }
+
+junit = "org.junit.jupiter:junit-jupiter:5.9.1"
+
+[bundles]
+voyager = ["voyager-navigator", "voyager-tab-navigator", "voyager-transitions"]
+
+[plugins]
