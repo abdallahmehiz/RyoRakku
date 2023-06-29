@@ -1,4 +1,3 @@
-
 plugins {
   alias(androidx.plugins.application)
   alias(kotlinx.plugins.android)
@@ -32,7 +31,10 @@ android {
     getByName("release") {
       isMinifyEnabled = true
       isShrinkResources = true
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+      proguardFiles(
+        getDefaultProguardFile("proguard-android-optimize.txt"),
+        "proguard-rules.pro"
+      )
       signingConfig = signingConfigs.getByName("debug")
     }
 
@@ -55,11 +57,6 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion = "1.4.0"
   }
-  packagingOptions {
-    resources {
-      excludes += "/META-INF/{AL2.0,LGPL2.1}"
-    }
-  }
 }
 
 dependencies {
@@ -70,6 +67,8 @@ dependencies {
   implementation(compose.ui.tooling)
   implementation(compose.ui.graphics)
   implementation(compose.navigation)
+
+  implementation(compose.accompanist.webview)
 
   implementation(compose.material3.core)
 

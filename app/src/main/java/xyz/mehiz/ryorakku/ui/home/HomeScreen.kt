@@ -22,7 +22,7 @@ import xyz.mehiz.ryorakku.ui.manga.MangaTab
 import xyz.mehiz.ryorakku.ui.profile.ProfileTab
 import xyz.mehiz.ryorakku.ui.theme.RyoRakkuTheme
 
-class HomeScreen: Screen {
+class HomeScreen : Screen {
   private val tabs = listOf(
     AnimeTab,
     MangaTab,
@@ -30,9 +30,10 @@ class HomeScreen: Screen {
     CalendarTab,
     ProfileTab
   )
+
   @OptIn(ExperimentalMaterial3Api::class)
   @Composable
-  override fun Content(){
+  override fun Content() {
     RyoRakkuTheme {
       TabNavigator(AnimeTab) {
         Scaffold(
@@ -74,6 +75,6 @@ private fun RowScope.NavigationBarItem(tab: cafe.adriel.voyager.navigator.tab.Ta
         maxLines = 1,
       )
     },
-    alwaysShowLabel = false,
+    alwaysShowLabel = true,
   )
 }

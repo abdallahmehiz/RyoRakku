@@ -18,24 +18,25 @@ import cafe.adriel.voyager.navigator.NavigatorDisposeBehavior
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import xyz.mehiz.ryorakku.ui.home.HomeScreen
+import xyz.mehiz.ryorakku.ui.theme.RyoRakkuTheme
 import kotlin.time.Duration.Companion.seconds
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      Navigator(
-        screen = HomeScreen(),
-        disposeBehavior = NavigatorDisposeBehavior(
-          disposeNestedNavigators = false,
-          disposeSteps = true
+      RyoRakkuTheme {
+        Navigator(
+          screen = HomeScreen(),
+          disposeBehavior = NavigatorDisposeBehavior(
+            disposeNestedNavigators = false,
+            disposeSteps = true
+          )
         )
-      )
-      { navigator ->
-        if (navigator.size == 1) {
-          ConfirmExit()
+        { navigator ->
+          if (navigator.size == 1) ConfirmExit()
+          CurrentScreen()
         }
-        CurrentScreen()
       }
     }
   }

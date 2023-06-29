@@ -1,12 +1,13 @@
 [versions]
-compiler = "1.8.0"
-compose-bom = "2022.10.00"
-
+compose-bom = "2023.06.01"
+accompanist = "0.31.4-beta"
 [libraries]
 activity = "androidx.activity:activity-compose:1.7.2"
-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom"}
+bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 ui = { module = "androidx.compose.ui:ui" }
 ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
 material3-core = { module = "androidx.compose.material3:material3" }
 navigation = "androidx.navigation:navigation-compose:2.6.0"
+
+accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
