@@ -28,7 +28,7 @@ android {
   }
 
   buildTypes {
-    getByName("release") {
+    release {
       isMinifyEnabled = true
       isShrinkResources = true
       proguardFiles(
@@ -38,9 +38,10 @@ android {
       signingConfig = signingConfigs.getByName("debug")
     }
 
-    getByName("debug") {
+    debug {
       isMinifyEnabled = false
       applicationIdSuffix = ".debug"
+      versionNameSuffix = "-debug"
       isDebuggable = true
     }
   }
