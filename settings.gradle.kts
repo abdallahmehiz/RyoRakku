@@ -1,9 +1,9 @@
 pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+  }
 }
 dependencyResolutionManagement {
   versionCatalogs {
@@ -20,8 +20,8 @@ dependencyResolutionManagement {
 
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
   repositories {
-      google()
-      mavenCentral()
+    google()
+    mavenCentral()
   }
 }
 rootProject.name = "RyoRakku"
