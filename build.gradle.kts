@@ -1,6 +1,6 @@
 buildscript {
   dependencies {
-    classpath("com.android.tools.build:gradle:8.0.2")
+    classpath(libs.gradle)
   }
 }
 // Top-level build file where you can add configuration options common to all sub-projects/modules.

@@ -1,6 +1,5 @@
 [versions]
 agp = "8.0.2"
-datastore = "1.0.0"
 
 [libraries]
 lifecycle-runtimektx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.6.1" }

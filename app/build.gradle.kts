@@ -56,7 +56,7 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.4.0"
+    kotlinCompilerExtensionVersion = "1.4.8"
   }
 }
 
@@ -67,7 +67,6 @@ dependencies {
   implementation(compose.ui)
   implementation(compose.ui.tooling)
   implementation(compose.ui.graphics)
-  implementation(compose.navigation)
 
   implementation(compose.accompanist.webview)
 
@@ -81,14 +80,6 @@ dependencies {
   implementation(kotlinx.bom)
   implementation(kotlinx.bundles.coroutines)
 
-
-  testImplementation(libs.junit)
   implementation(libs.apollo)
   implementation(libs.bundles.voyager)
-
-  // Dagger - Hilt
-  implementation(libs.hilt.android)
-  implementation(libs.hilt.navigation.compose)
-  kapt(libs.hilt.android.compiler)
-  kapt(libs.hilt.compiler)
 }
