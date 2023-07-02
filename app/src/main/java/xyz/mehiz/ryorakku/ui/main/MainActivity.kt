@@ -18,6 +18,7 @@ import cafe.adriel.voyager.navigator.NavigatorDisposeBehavior
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import xyz.mehiz.ryorakku.ui.home.HomeScreen
+import xyz.mehiz.ryorakku.ui.onboarding.OnBoardingScreen
 import xyz.mehiz.ryorakku.ui.theme.RyoRakkuTheme
 import kotlin.time.Duration.Companion.seconds
 
@@ -26,7 +27,8 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       RyoRakkuTheme {
-        Navigator(
+        Navigator(screen = OnBoardingScreen())
+        if (false) Navigator(
           screen = HomeScreen(),
           disposeBehavior = NavigatorDisposeBehavior(
             disposeNestedNavigators = false,

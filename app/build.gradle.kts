@@ -4,6 +4,7 @@ plugins {
   alias(libs.plugins.apollo)
   kotlin("kapt")
 }
+
 apollo {
   service("service") {
     packageName.set("xyz.mehiz.ryorakku")
@@ -68,8 +69,6 @@ dependencies {
   implementation(compose.ui.tooling)
   implementation(compose.ui.graphics)
 
-  implementation(compose.accompanist.webview)
-
   implementation(compose.material3.core)
 
   // Androidx
@@ -79,6 +78,11 @@ dependencies {
   // Kotlinx
   implementation(kotlinx.bom)
   implementation(kotlinx.bundles.coroutines)
+
+  // Accompanist
+  implementation(libs.accompanist.pager)
+  implementation(libs.accompanist.pager.indicators)
+  implementation(libs.accompanist.webview)
 
   implementation(libs.apollo)
   implementation(libs.bundles.voyager)
