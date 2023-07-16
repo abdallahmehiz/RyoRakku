@@ -3,6 +3,7 @@ gradle = "8.0.2"
 voyager = "1.0.0-rc07"
 apollo = "3.8.2"
 accompanist = "0.31.4-beta"
+hilt = "2.47"
 
 [libraries]
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
@@ -16,8 +17,13 @@ accompanist-pager = { module = "com.google.accompanist:accompanist-pager", versi
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
 
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+
 [bundles]
 voyager = ["voyager-navigator", "voyager-tab-navigator", "voyager-transitions"]
 
 [plugins]
 apollo = { id = "com.apollographql.apollo3", version.ref = "apollo" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

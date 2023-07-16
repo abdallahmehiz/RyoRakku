@@ -1,4 +1,4 @@
-package xyz.mehiz.ryorakku.ui.profile
+package xyz.mehiz.ryorakku.ui.home.calendar
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,13 +11,13 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import xyz.mehiz.ryorakku.R
 
-object ProfileTab : Tab {
+object CalendarTab : Tab {
   override val options: TabOptions
     @Composable
     get() {
-      val title = "Profile"
-      val image = painterResource(id = R.drawable.outline_account_box_24)
-      return TabOptions(index = 4u, title = title, icon = image)
+      val title = "Calendar"
+      val image = painterResource(id = R.drawable.outline_calendar_month_24)
+      return TabOptions(index = 3u, title = title, icon = image)
     }
 
   @Composable
@@ -26,7 +26,7 @@ object ProfileTab : Tab {
       modifier = Modifier.fillMaxSize(),
       contentAlignment = Alignment.Center
     ) {
-      Text(text = "Profile")
+      Text(text = "Calendar")
     }
   }
 }

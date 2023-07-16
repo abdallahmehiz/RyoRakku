@@ -3,7 +3,6 @@ package xyz.mehiz.ryorakku.ui.home
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -11,19 +10,19 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.CurrentScreen
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.TabNavigator
-import xyz.mehiz.ryorakku.ui.anime.AnimeTab
-import xyz.mehiz.ryorakku.ui.calendar.CalendarTab
-import xyz.mehiz.ryorakku.ui.discover.DiscoverTab
-import xyz.mehiz.ryorakku.ui.manga.MangaTab
-import xyz.mehiz.ryorakku.ui.profile.ProfileTab
+import xyz.mehiz.ryorakku.ui.home.anime.AnimeTab
+import xyz.mehiz.ryorakku.ui.home.calendar.CalendarTab
+import xyz.mehiz.ryorakku.ui.home.discover.DiscoverTab
+import xyz.mehiz.ryorakku.ui.home.manga.MangaTab
+import xyz.mehiz.ryorakku.ui.home.profile.ProfileTab
 import xyz.mehiz.ryorakku.ui.theme.RyoRakkuTheme
 
-class HomeScreen : Screen {
-  private val tabs = listOf(
+@Composable
+fun HomeScreen() {
+  val tabs = listOf(
     AnimeTab,
     MangaTab,
     DiscoverTab,
@@ -31,27 +30,23 @@ class HomeScreen : Screen {
     ProfileTab
   )
 
-  @OptIn(ExperimentalMaterial3Api::class)
-  @Composable
-  override fun Content() {
-    RyoRakkuTheme {
-      TabNavigator(AnimeTab) {
-        Scaffold(
-          content = { padding ->
-            Column(modifier = Modifier.padding(padding))
-            {
-              CurrentScreen()
-            }
-          },
-          bottomBar = {
-            NavigationBar {
-              tabs.forEach {
-                NavigationBarItem(it)
-              }
+  RyoRakkuTheme {
+    TabNavigator(AnimeTab) {
+      Scaffold(
+        content = { padding ->
+          Column(modifier = Modifier.padding(padding))
+          {
+            CurrentScreen()
+          }
+        },
+        bottomBar = {
+          NavigationBar {
+            tabs.forEach {
+              NavigationBarItem(it)
             }
           }
-        )
-      }
+        }
+      )
     }
   }
 }

@@ -1,4 +1,4 @@
-package xyz.mehiz.ryorakku.components.webview
+package xyz.mehiz.ryorakku.ui.components.webview
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
@@ -29,8 +29,7 @@ fun WebViewScreen(
   val state = rememberWebViewState(url = url)
   val navigator = rememberWebViewNavigator()
 
-  Column(
-  ) {
+  Column {
     TopAppBar(
       title = { Text(text = state.pageTitle ?: initialTitle) },
       navigationIcon = {

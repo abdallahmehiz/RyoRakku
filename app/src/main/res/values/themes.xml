@@ -2,4 +2,5 @@
 <resources>
 
   <style name="Theme.RyoRakku" parent="android:Theme.Material.Light.NoActionBar" />
+
 </resources>

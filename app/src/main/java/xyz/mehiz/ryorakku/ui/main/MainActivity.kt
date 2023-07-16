@@ -1,60 +1,35 @@
 package xyz.mehiz.ryorakku.ui.main
 
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
-import cafe.adriel.voyager.navigator.CurrentScreen
-import cafe.adriel.voyager.navigator.Navigator
-import cafe.adriel.voyager.navigator.NavigatorDisposeBehavior
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import xyz.mehiz.ryorakku.ui.home.HomeScreen
-import xyz.mehiz.ryorakku.ui.onboarding.OnBoardingScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
+import xyz.mehiz.ryorakku.ui.navigation.SetupNavGraph
+import xyz.mehiz.ryorakku.ui.splashscreen.SplashViewModel
 import xyz.mehiz.ryorakku.ui.theme.RyoRakkuTheme
-import kotlin.time.Duration.Companion.seconds
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+  @Inject
+  lateinit var splashViewModel: SplashViewModel
+
+  private lateinit var navController: NavHostController
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    installSplashScreen().setKeepOnScreenCondition { splashViewModel.isLoading.value }
     setContent {
       RyoRakkuTheme {
-        Navigator(screen = OnBoardingScreen())
-        if (false) Navigator(
-          screen = HomeScreen(),
-          disposeBehavior = NavigatorDisposeBehavior(
-            disposeNestedNavigators = false,
-            disposeSteps = true
-          )
-        )
-        { navigator ->
-          if (navigator.size == 1) ConfirmExit()
-          CurrentScreen()
-        }
+        val screen by splashViewModel.startDestination
+        navController = rememberNavController()
+        Log.d("MainActivity", "onCreate: current destination is $screen")
+        SetupNavGraph(navController = navController, startDestination = screen)
       }
-    }
-  }
-}
-
-@Composable
-private fun ConfirmExit() {
-  val scope = rememberCoroutineScope()
-  val context = LocalContext.current
-  var waitingConfirmation by remember { mutableStateOf(false) }
-  BackHandler(enabled = !waitingConfirmation) {
-    scope.launch {
-      waitingConfirmation = true
-      Toast.makeText(context, "Back again to exit", Toast.LENGTH_SHORT).show()
-      delay(2.seconds)
-      waitingConfirmation = false
     }
   }
 }

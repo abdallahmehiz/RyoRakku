@@ -3,6 +3,11 @@ plugins {
   alias(kotlinx.plugins.android)
   alias(libs.plugins.apollo)
   kotlin("kapt")
+  alias(libs.plugins.hilt)
+}
+
+kapt {
+  correctErrorTypes = true
 }
 
 apollo {
@@ -68,12 +73,20 @@ dependencies {
   implementation(compose.ui)
   implementation(compose.ui.tooling)
   implementation(compose.ui.graphics)
+  implementation(compose.navigation)
 
   implementation(compose.material3.core)
 
   // Androidx
   implementation(androidx.lifecycle.runtimektx)
   implementation(androidx.corektx)
+  implementation(androidx.datastore.preferences)
+  implementation(androidx.splashscreen)
+
+  // Hilt
+  implementation(libs.hilt.android)
+  kapt(libs.hilt.compiler)
+  implementation(androidx.hilt.navigation)
 
   // Kotlinx
   implementation(kotlinx.bom)

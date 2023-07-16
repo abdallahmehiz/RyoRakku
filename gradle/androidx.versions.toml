@@ -1,9 +1,18 @@
 [versions]
 agp = "8.0.2"
+datastore = "1.0.0"
+hilt = "1.0.0"
+splashscreen = "1.0.1"
 
 [libraries]
 lifecycle-runtimektx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.6.1" }
 corektx = "androidx.core:core-ktx:1.10.1"
+
+datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+
+hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt" }
+
+splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
 
 [plugins]
 application = { id = "com.android.application", version.ref = "agp" }
