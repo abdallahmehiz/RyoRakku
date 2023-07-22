@@ -12,3 +12,7 @@ plugins {
   alias(androidx.plugins.test) apply false
   alias(libs.plugins.hilt) apply false
 }
+
+tasks.register<Delete>("clean") {
+  delete(rootProject.buildDir)
+}
