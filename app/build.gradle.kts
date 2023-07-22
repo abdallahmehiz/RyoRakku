@@ -74,6 +74,7 @@ dependencies {
   implementation(compose.ui.tooling)
   implementation(compose.ui.graphics)
   implementation(compose.navigation)
+  implementation(compose.animation)
 
   implementation(compose.material3.core)
 
@@ -85,6 +86,7 @@ dependencies {
 
   // Hilt
   implementation(libs.hilt.android)
+  implementation(libs.animation.graphics)
   kapt(libs.hilt.compiler)
   implementation(androidx.hilt.navigation)
 

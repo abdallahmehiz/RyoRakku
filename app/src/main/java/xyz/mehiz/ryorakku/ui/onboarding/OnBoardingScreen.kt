@@ -9,11 +9,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -43,8 +43,8 @@ fun OnBoardingScreen(
       }
     },
     bottomBar = {
-      Button(onClick = { navController.navigate(Route.Home.route) }) {
-        Text(text = "Login(Doesn't work yet)")
+      ExtendedFloatingActionButton(onClick = { /*TODO*/ }) {
+        Text(text = "Skippp")
       }
     },
   ) { padding ->
@@ -69,10 +69,4 @@ fun PagerScreen(onBoardingPages: OnBoardingPages) {
       fontSize = 16.sp
     )
   }
-}
-
-@Preview
-@Composable
-fun PreviewPagerScreen() {
-  PagerScreen(onBoardingPages = OnBoardingPages.First)
 }

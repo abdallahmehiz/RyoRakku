@@ -4,6 +4,7 @@ voyager = "1.0.0-rc07"
 apollo = "3.8.2"
 accompanist = "0.31.4-beta"
 hilt = "2.47"
+animation-graphics = "1.4.3"
 
 [libraries]
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
@@ -20,6 +21,7 @@ accompanist-webview = { module = "com.google.accompanist:accompanist-webview", v
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+animation-graphics = { group = "androidx.compose.animation", name = "animation-graphics", version.ref = "animation-graphics" }
 
 [bundles]
 voyager = ["voyager-navigator", "voyager-tab-navigator", "voyager-transitions"]

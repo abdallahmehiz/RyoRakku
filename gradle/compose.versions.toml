@@ -9,3 +9,4 @@ ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
 material3-core = { module = "androidx.compose.material3:material3" }
 navigation = { module = "androidx.navigation:navigation-compose", version = "2.6.0" }
+animation = { module = "androidx.compose.animation:animation" }
