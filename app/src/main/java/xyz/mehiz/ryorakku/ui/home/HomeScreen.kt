@@ -31,7 +31,7 @@ fun HomeScreen() {
   )
 
   RyoRakkuTheme {
-    TabNavigator(AnimeTab) {
+    TabNavigator(DiscoverTab) {
       Scaffold(
         content = { padding ->
           Column(modifier = Modifier.padding(padding))
