@@ -101,4 +101,5 @@ dependencies {
 
   implementation(libs.apollo)
   implementation(libs.bundles.voyager)
+  implementation(libs.retrofit)
 }
