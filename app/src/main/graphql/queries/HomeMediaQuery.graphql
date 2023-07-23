@@ -1,0 +1,23 @@
+query HomeMedia {
+  trendingManga: Page(perPage: 10) {
+    media(sort: TRENDING_DESC, type: MANGA, isAdult: false) {
+      ...MediaFields
+    }
+  }
+}
+
+fragment MediaFields on Media {
+  id
+  title {
+    romaji
+    english
+    native
+    userPreferred
+  }
+  format
+  coverImage {
+    large
+    medium
+  }
+  bannerImage
+}
