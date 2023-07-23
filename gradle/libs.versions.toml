@@ -6,6 +6,7 @@ accompanist = "0.31.4-beta"
 hilt = "2.47"
 animation-graphics = "1.4.3"
 retrofit = "2.9.0"
+coil = "2.4.0"
 
 [libraries]
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
@@ -25,6 +26,8 @@ hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", 
 animation-graphics = { group = "androidx.compose.animation", name = "animation-graphics", version.ref = "animation-graphics" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 
 [bundles]
 voyager = ["voyager-navigator", "voyager-tab-navigator", "voyager-transitions"]
